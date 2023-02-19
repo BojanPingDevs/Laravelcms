@@ -20,3 +20,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
+    Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('/users/create', [\App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+    Route::post('/users', [\App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+    Route::get('/user/{user}/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+    Route::get('/user/{user}/show', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+    Route::put('/user/{user}',  [\App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
+});
+
+
+// index GET(vrakjas samo view)
+// create GET(vrakjas samo view)
+// store POST (redirect na index)
+// store show (vrakjas view so id od user)
+// store edit (vrakjas view so id od user)
+// store update (redirect na index)
+//
+
+
