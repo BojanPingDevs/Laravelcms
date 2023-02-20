@@ -52,6 +52,17 @@ class UserController1 extends Controller
         $email = $request->get('email');
         $password = bcrypt($request->get('password'));
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('post/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
 
         User::create([
             "name" => $name,
