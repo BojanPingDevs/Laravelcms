@@ -21,13 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
-    Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-    Route::get('/users/create', [\App\Http\Controllers\UserController::class, 'create'])->name('users.create');
-    Route::post('/users', [\App\Http\Controllers\UserController::class, 'store'])->name('users.store');
-    Route::get('/user/{user}/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
-    Route::get('/user/{user}/show', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
-    Route::put('/user/{user}',  [\App\Http\Controllers\UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
+    Route::get('/users', [\App\Http\Controllers\UserController1::class, 'index'])->name('users.index');
+    Route::get('/users/create', [\App\Http\Controllers\UserController1::class, 'create'])->name('users.create');
+    Route::post('/users', [\App\Http\Controllers\UserController1::class, 'store'])->name('users.store');
+    Route::get('/user/{user}/edit', [\App\Http\Controllers\UserController1::class, 'edit'])->name('users.edit');
+    Route::get('/user/{user}/show', [\App\Http\Controllers\UserController1::class, 'show'])->name('users.show');
+    Route::put('/user/{user}',  [\App\Http\Controllers\UserController1::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [\App\Http\Controllers\UserController1::class, 'destroy']);
 });
 
 
