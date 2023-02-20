@@ -53,12 +53,13 @@ class UserController1 extends Controller
         $password = bcrypt($request->get('password'));
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|unique:users',
+            'password' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect('post/create')
+            return redirect()->route('users.create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -69,6 +70,8 @@ class UserController1 extends Controller
             "email" => $email,
             "password" => $password,
         ]);
+
+        return redirect()->route('users.index');
 
     }
 
