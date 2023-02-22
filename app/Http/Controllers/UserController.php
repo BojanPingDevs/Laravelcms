@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 
-class UserController1 extends Controller
+class UserController extends Controller
 {
 
     public function __construct()
