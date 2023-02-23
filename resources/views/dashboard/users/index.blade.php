@@ -11,9 +11,13 @@
             <table class="table mt-xl-4">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
+                    <th>Created_at</th>
                     <th>Password</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,6 +26,8 @@
                         <td><a href="{{ route('users.show', $user->id) }}">{{ $user->id }}</a></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->role }}</td>
+                        <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>{{ $user->password }}</td>
                         <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Edit</a></td>
                     </tr>

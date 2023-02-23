@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +31,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('dashboard.users.create');
+        $roles = Role::all();
+        $data = ['roles' => $roles];
+        return view('dashboard.users.create')->with($data);
     }
 
     /**
@@ -105,7 +108,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::FindOrFail($id);
-        $data = ['user' => $user];
+        $roles = Role::all();
+        $data = ['user' => $user, 'roles' => $roles];
+
         return view('dashboard.users.edit')->with($data);
     }
 

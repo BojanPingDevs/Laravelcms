@@ -38,6 +38,15 @@
                             @enderror
                         </div>
 
+                        <div class="form-group mt-2 col-md-6">
+                            <label for="role">Roles</label>
+                            <select name="role_id" class="form-control" id="role">
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <button type="submit" class="btn btn-primary mt-xl-4">Submit</button>
                     </form>
 
