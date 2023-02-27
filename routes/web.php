@@ -27,7 +27,8 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
     Route::get('/user/{user}/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
     Route::get('/user/{user}/show', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
     Route::put('/user/{user}',  [\App\Http\Controllers\UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy']);
+    Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
+    Route::resource('/categories', App\Http\Controllers\CategoriesController::class);
 });
 
 

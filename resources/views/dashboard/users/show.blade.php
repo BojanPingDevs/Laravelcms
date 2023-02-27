@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('section')
+@section('content')
     <div class="col-12">
         <h1>Welcome {{ $user->name }}</h1>
         <p>Your email address is: {{ $user->email }}</p>
@@ -14,6 +14,7 @@
         <form method="post" action="{{ route('users.destroy', $user->id) }}">
             @method('DELETE')
             @csrf
+
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
