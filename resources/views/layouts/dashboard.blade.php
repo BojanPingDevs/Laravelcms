@@ -128,7 +128,7 @@
                             </li>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('users.index') }}" class="nav-link d-flex align-items-center text-truncate ">
+                                <a href="{{ route('products.index') }}" class="nav-link d-flex align-items-center text-truncate ">
 <span class="sidebar-icon">
  <i class="fs-2 text-primary d-block mb-2 bi bi-patch-plus-fill"></i>
 </span>
